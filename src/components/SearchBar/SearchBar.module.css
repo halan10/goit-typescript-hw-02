@@ -16,7 +16,8 @@
   padding-bottom: 0px;
 }
 .form {
-  width: 30%;
+  width: 60%;
+  margin: 1rem auto 1rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -30,6 +31,11 @@
   border-radius: 10px 0 0 10px;
   outline: none;
   color: #2b303b;
+}
+@media (max-width: 400px) {
+  .searchField {
+    font-size: 10px;
+  }
 }
 .icon {
   width: 40px;

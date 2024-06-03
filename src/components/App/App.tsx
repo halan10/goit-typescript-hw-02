@@ -11,6 +11,7 @@ import ImageModal from '../ImageModal/ImageModal';
 
 import { Photo } from '../../types';
 import './App.css';
+import MainInformation from '../MainInformation/MainInformation';
 
 export default function App() {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -60,8 +61,10 @@ export default function App() {
   return (
     <>
       <SearchBar onSearch={handleSearch} />
-      {photos.length > 0 && (
+      {photos.length > 0 && !isLoading ? (
         <ImageGallery items={photos} onOpenModal={handleOpenModal} />
+      ) : (
+        <MainInformation />
       )}
       {error && <ErrorMessage />}
       {isLoading && <Loader />}
