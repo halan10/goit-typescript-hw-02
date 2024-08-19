@@ -21,7 +21,7 @@ export default function App() {
   const [query, setQuery] = useState<string>('');
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [selectImage, setSelectImage] = useState<Photo>();
-
+  const isDisabled = isLoading ? true : false;
   useEffect(() => {
     if (query === '') {
       return;
@@ -64,7 +64,7 @@ export default function App() {
       {photos.length > 0 && !isLoading ? (
         <ImageGallery items={photos} onOpenModal={handleOpenModal} />
       ) : (
-        <MainInformation />
+        <MainInformation disabled={isDisabled} />
       )}
       {error && <ErrorMessage />}
       {isLoading && <Loader />}
